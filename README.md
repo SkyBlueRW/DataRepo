@@ -4,9 +4,9 @@ A data update pipeline that can be used for on-going and historical calculation 
 
 ## Data Update Function:
 > The functionality of data update centers around the class **core.DataUpdate**. The logic of the functionality is as follows
-     - Given a dictionary of data calculation function (it can be anything from portfolio construction, signal calculation, performance evaluation etc..) defined in python scripts.
-     - Check the availability of corresponding data in the data store and figure out periods of calculation for each calculation function as per the update method
-     - Conduct the calculation for missing bit and store in the data store
+- Given a dictionary of data calculation function (it can be anything from portfolio construction, signal calculation, performance evaluation etc..) defined in python scripts.
+- Check the availability of corresponding data in the data store and figure out periods of calculation for each calculation function as per the update method
+- Conduct the calculation for missing bit and store in the data store
 
 > Any intermediary steps including the creation of data store, the search of data to be updated, update, logging can be automatically via configurations of the set. The configuration for each calculation function is passsed via the data_config decorator.
 >
