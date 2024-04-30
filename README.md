@@ -1,4 +1,6 @@
-# 数据更新模块
+# Data Repo
+
+A data update pipeline that can be used for on-going and historical calculation given a python script.
 
 ## 数据更新功能:
 > 数据更新的基础功能围绕**core.DataUpdate类**进行。DataUpdate类运行的基础逻辑在于，给定元素为**数据计算函数**的dict，独立检查每一数据计算函数在指定数据库(通过DataUpdate的参数传入)的状态，并根据选定的数据更新方式进行相对应
