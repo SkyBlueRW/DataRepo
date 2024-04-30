@@ -8,7 +8,7 @@ A data update pipeline that can be used for on-going and historical calculation 
 - Check the availability of corresponding data in the data store and figure out periods of calculation for each calculation function as per the update method
 - Conduct the calculation for missing bit and store in the data store
 
-> Any intermediary steps including the creation of data store, the search of data to be updated, update, logging can be automatically via configurations of the set. The configuration for each calculation function is passsed via the data_config decorator.
+> Any intermediary steps including the creation of data store, the search of data to be updated, update, logging can be automatically handled via configurations of the set. The configuration for each calculation function is passsed via the data_config decorator.
 >
 > 
 > 借助**from_file_path**的类初始化方式，DataUpdate类可以实现，更新指定py脚本(full path)中所有状态为update的函数，从而实现数据计算函数与更新模块的独立。
