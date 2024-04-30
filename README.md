@@ -2,8 +2,9 @@
 
 A data update pipeline that can be used for on-going and historical calculation given a python script.
 
-## 数据更新功能:
-> 数据更新的基础功能围绕**core.DataUpdate类**进行。DataUpdate类运行的基础逻辑在于，给定元素为**数据计算函数**的dict，独立检查每一数据计算函数在指定数据库(通过DataUpdate的参数传入)的状态，并根据选定的数据更新方式进行相对应
+## Data Update Function:
+> The functionality of data update centers around the class**core.DataUpdate**。
+DataUpdate类运行的基础逻辑在于，给定元素为**数据计算函数**的dict，独立检查每一数据计算函数在指定数据库(通过DataUpdate的参数传入)的状态，并根据选定的数据更新方式进行相对应
 > 的表创建，待更新数据检索，数据更新，logging等功能。数据计算函数需要通过data_config decorator的方式来声明数据的特征，包括对应数据表名，数据结构等。
 
 > 借助**from_file_path**的类初始化方式，DataUpdate类可以实现，更新指定py脚本(full path)中所有状态为update的函数，从而实现数据计算函数与更新模块的独立。
