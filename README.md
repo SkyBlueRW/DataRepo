@@ -3,24 +3,24 @@
 A data update pipeline that can be used for on-going and historical calculation given a python script.
 
 ## Data Update Function:
-> The functionality of data update centers around the class **core.DataUpdate**. The logic of the functionality is as follows
+The functionality of data update centers around the class **core.DataUpdate**. The logic of the functionality is as follows
 - Given a dictionary of data calculation function (it can be anything from portfolio construction, signal calculation, performance evaluation etc..) defined in python scripts.
 - Check the availability of corresponding data in the data store and figure out periods of calculation for each calculation function as per the update method
 - Conduct the calculation for missing bit and store in the data store
 
-> Any intermediary steps including the creation of data store, the search of data to be updated, update, logging can be automatically handled via configurations of the set. The configuration for each calculation function is passsed via the data_config decorator.
+Any intermediary steps including the creation of data store, the search of data to be updated, update, logging can be automatically handled via configurations of the set. The configuration for each calculation function is passsed via the data_config decorator.
 
 
 DataUpdate class can be initiated via the following static method
-> **from_file_path** - initiate a DataUpdate instance to update all functions in a given python files with status of 'update'. The method helps to isolate the calculation function from data update module
+- **from_file_path** - initiate a DataUpdate instance to update all functions in a given python files with status of 'update'. The method helps to isolate the calculation function from data update module
     -  Refer to examples
     - calculation functions are defined in a py file (data_function.py). Calculation configuration is defined via the decorator of each function (fields of the data set, ways of update, frequencies of update ...)
     - define logger and execute the data update (run.py)
 
-> **indicator_from_func** - initiate a DataUpdate prototypes to apply the same calculation on various datasets (I.E. calculate the alpha signal performance for all signals)
-    > Refer to examples 
-    > 1. 定义用于信号指标的计算方法，其应当接受field作为字段，用于对多个信号进行同样的信号表现计算(在data_cal_proto.py中实现)。
-    > 2. 在数据更新文件(proto_run.py)中定义Logger，借助indicator_from_func函数进行多个信号表现的计算
+- **indicator_from_func** - initiate a DataUpdate prototypes to apply the same calculation on various datasets (I.E. calculate the alpha signal performance for all signals)
+    - Refer to examples 
+    - 定义用于信号指标的计算方法，其应当接受field作为字段，用于对多个信号进行同样的信号表现计算(在data_cal_proto.py中实现)。
+    - 在数据更新文件(proto_run.py)中定义Logger，借助indicator_from_func函数进行多个信号表现的计算
 
 
 
