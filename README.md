@@ -9,15 +9,16 @@ A data update pipeline that can be used for on-going and historical calculation 
 - Conduct the calculation for missing bit and store in the data store
 
 > Any intermediary steps including the creation of data store, the search of data to be updated, update, logging can be automatically handled via configurations of the set. The configuration for each calculation function is passsed via the data_config decorator.
->
-> 
-> 借助**from_file_path**的类初始化方式，DataUpdate类可以实现，更新指定py脚本(full path)中所有状态为update的函数，从而实现数据计算函数与更新模块的独立。
-    > 参见examples中的例子
-    > 1. 在py文件(data_function.py)中定义各数据的数据计算函数，并通过data_config decorator的方式定义该数据的基础属性(包括哪些字段，使用何种方式进行更新等)
-    > 2. 在数据更新文件(run.py)中定义logger，数据库连接等，运行数据进行数据更新
 
-> 借助**indicator_from_func**的类初始化方式，DataUpdate类可以实现，根据prototype数据计算函数，通过改变特定参数以获得dict of 数据计算函数的方法。当下该方法用于信号表现的计算更新(不同信号表现只需要更改信号名称作为)
-    > 参见examples中的例子
+
+> DataUpdate class can be initiated via the following static method
+> **from_file_path** - initiate a DataUpdate instance to update all functions in a given python files with status of 'update'. The method helps to isolate the calculation function from data update module
+    > Refer to examples
+    > 1. calculation functions need to be defined in a py file. Calculation configuration is defined via the decorator of each function (fields of the data set, ways of update, frequencies of update ...)
+    > 2. define logger in main execution
+
+> **indicator_from_func** - initiate a DataUpdate prototypes to apply the same calculation on various datasets (I.E. calculate the alpha signal performance for all signals)
+    > Refer to examples - 
     > 1. 定义用于信号指标的计算方法，其应当接受field作为字段，用于对多个信号进行同样的信号表现计算(在data_cal_proto.py中实现)。
     > 2. 在数据更新文件(proto_run.py)中定义Logger，借助indicator_from_func函数进行多个信号表现的计算
 
