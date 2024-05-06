@@ -11,11 +11,11 @@ A data update pipeline that can be used for on-going and historical calculation 
 > Any intermediary steps including the creation of data store, the search of data to be updated, update, logging can be automatically handled via configurations of the set. The configuration for each calculation function is passsed via the data_config decorator.
 
 
-> DataUpdate class can be initiated via the following static method
+DataUpdate class can be initiated via the following static method
 > **from_file_path** - initiate a DataUpdate instance to update all functions in a given python files with status of 'update'. The method helps to isolate the calculation function from data update module
-    > Refer to examples
-    1. calculation functions are defined in a py file (data_function.py). Calculation configuration is defined via the decorator of each function (fields of the data set, ways of update, frequencies of update ...)
-    2. define logger and execute the data update (run.py)
+    -  Refer to examples
+    - calculation functions are defined in a py file (data_function.py). Calculation configuration is defined via the decorator of each function (fields of the data set, ways of update, frequencies of update ...)
+    - define logger and execute the data update (run.py)
 
 > **indicator_from_func** - initiate a DataUpdate prototypes to apply the same calculation on various datasets (I.E. calculate the alpha signal performance for all signals)
     > Refer to examples 
