@@ -18,20 +18,20 @@ DataUpdate class can be initiated via the following static method
     - define logger and execute the data update (run.py)
 
 - **indicator_from_func** - initiate a DataUpdate prototypes to apply the same calculation on various datasets (I.E. calculate the alpha signal performance for all signals)
-    - Refer to examples 
-    - 定义用于信号指标的计算方法，其应当接受field作为字段，用于对多个信号进行同样的信号表现计算(在data_cal_proto.py中实现)。
-    - 在数据更新文件(proto_run.py)中定义Logger，借助indicator_from_func函数进行多个信号表现的计算
+    - Refer to examples
+    - The calculation of indicator takes fields as input and can be used for the same calculation on different data sets (implemented in data_cal_proto.py)
+    - Logger is defined in data update file (proto_run.oy)
 
 
 
 ## data_config
-> 使用decorator的形式来记录数据的属性
+> Configuration about the data update is defined in the decorator of calculation function
 1. data_name
-    必须，定义该数据对应的表名称
+    mandatory, refers to corresponding data store (where)   
 2. status
-    必须， update, not_update,该数据是否用于更新
+    mandatory: update/not_update refers to if it is actively updated (if)
 3. data_structure
-    必须，声明计算所得数据的数据结构，被用于创建表，格式应当类似, 需要注意的是后边应当对应sql中的数据格式以确保表创建无误
+    mandatory: data structure of corresponding data. Data store will also be created accordingly as per the definition
     ```python{
         'date': 'CHAR(8)',
         'field': 'TEXT',
@@ -39,10 +39,9 @@ DataUpdate class can be initiated via the following static method
     }
     ```
 4. index
-    可选，适用于数据以sql表的形式存储，当声明index(list of str)时，将会根据提供的list在创建表时创建对应的index
+    optional, for data store of SQL type, when the index (list of str) is declared, corresponding index will be created on the SQL table
 5. field
-    可选，保留字段，当提供field(str)时, 数据的更新将会在field==field的约束下进行更新，通常用于多个数据更新函数对应同一表的情况。比如
-    针对多个股票池计算函数: broad, broader, hs300, zz500。将计算结果存储在同一表中这种应用情况。
+    optional, reserved word, when field(str) is supplied, data update will proceed under the restriction of field==field value. It is used for the prototype update. I.E update alpha signal performance for different variables within different universes.
 
 
 ## 常用使用方式
