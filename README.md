@@ -107,6 +107,7 @@ update_instance.dates_update_all(date_list=TRADE_DT)
     > - pickle: data store is a pickle file (pd.DataFrame)
     > - csvfolder: data store is a folder of data named after YYYYMMDD.csv
     > - csv: data store is a csv file
+
 > 2 ways of update methods:
     > - range: find the latest end date and use next date as the start date for update
     > - dates: given a list of dates, check if data is missing for corresponding date and if so calculate and insert
