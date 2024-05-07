@@ -44,8 +44,8 @@ DataUpdate class can be initiated via the following static method
     optional, reserved word, when field(str) is supplied, data update will proceed under the restriction of field==field value. It is used for the prototype update. I.E update alpha signal performance for different variables within different universes.
 
 
-## 常用使用方式
-1. 通过decorator的形式定义数据的类型与形式
+## Common usecase examples
+1. Defining data format and configuration in terms of decorator
 ```python
 from datarepo import data_config
 
